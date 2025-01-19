@@ -1,0 +1,14 @@
+{
+  "family": "camunda-task",
+  "containerDefinitions": [
+    {
+      "name": "camunda",
+      "image": "337909767085.dkr.ecr.us-east-1.amazonaws.com/camunda",
+      "memory": 512,
+      "cpu": 256,
+      "portMappings": [
+        { "containerPort": 8080, "hostPort": 8080 }
+      ]
+    }
+  ]
+}

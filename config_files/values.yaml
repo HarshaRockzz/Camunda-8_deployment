@@ -1,0 +1,18 @@
+global:
+  postgresql:
+    enabled: false
+  camunda:
+    enabled: true
+  externalDatabase:
+    host: database-2.cdemg6agqds3.us-east-1.rds.amazonaws.com
+    user: database-2
+    password: Harsha9652080
+    database: camunda
+
+zeebe:
+  broker:
+    gateway:
+      enable: true
+
+operate:
+  replicas: 1
