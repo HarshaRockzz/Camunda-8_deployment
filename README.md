@@ -2,24 +2,22 @@
 
 This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service).
 
----
 
 ## Prerequisites
 
 - AWS Account with AdministratorAccess.
-- Installed tools: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html), [Docker](https://docs.docker.com/get-docker/), [kubectl](https://kubernetes.io/docs/tasks/tools/), [eksctl](https://eksctl.io/), [Helm](https://helm.sh/docs/intro/install/).
+- Installed tools: [AWS CLI], [Docker], [kubectl], [eksctl], [Helm].
 
----
 
 ## Deploying Camunda 8 Using ECS
 
 ### 1. Create AWS Access Key ID and Secret Access Key
 
-1. Log in to the [AWS Management Console](https://aws.amazon.com/console/).
+1. Log in to the [AWS Management Console].
 2. Navigate to **IAM**:
    - Search for IAM in the search bar.
    - Go to **Users** > **Add Users**.
-   - Enter a username (e.g., `camunda-admin`).
+   - Enter a username.
    - Enable **Programmatic Access**.
 3. Assign permissions:
    - Choose **Attach existing policies directly**.
@@ -30,20 +28,19 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 
 ### 2. Install AWS CLI
 
-1. Download and install AWS CLI from the [official guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
-2. Verify the installation:
+1. Verify the installation:
    ```bash
    aws --version
    ```
-3. Configure AWS CLI:
+2. Configure AWS CLI:
    ```bash
    aws configure
    ```
    Provide the following:
    - Access Key ID
    - Secret Access Key
-   - Default region (e.g., `us-east-1`)
-   - Default output format (`json`)
+   - Default region
+   - Default output format
 
 ### 3. Set Up AWS Resources
 
@@ -52,11 +49,11 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 1. Navigate to **VPC** in the AWS Console.
 2. Create a new VPC:
    - Select **Create VPC** > **VPC Only**.
-   - Name your VPC (e.g., `camunda-vpc`).
-   - Set IPv4 CIDR block: `10.0.0.0/16`.
+   - Name your VPC.
+   - Set IPv4 CIDR block.
 3. Create Subnets:
    - Go to **Subnets** > **Create Subnet**.
-   - Create a public subnet (`10.0.1.0/24`) and a private subnet (`10.0.2.0/24`).
+   - Create a public subnet and a private subnet.
 4. Attach an Internet Gateway:
    - Go to **Internet Gateway** > **Create Internet Gateway**.
    - Attach it to your VPC.
@@ -87,7 +84,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 1. Navigate to **ECS** in the AWS Console.
 2. Create a new cluster:
    - Select **Fargate** as the launch type.
-   - Name your cluster (e.g., `camunda-cluster`).
+   - Name your cluster.
 
 #### 4.2 Prepare Camunda Docker Image
 
@@ -112,7 +109,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - Navigate to **Task Definitions** > **Create New Task Definition**.
    - Select **Fargate** as the launch type.
    - Add the Camunda container:
-     - Image: `<your_ecr_url>/camunda`
+     - Image: `<ecr_url>/camunda`
      - Port mappings: `8080`, `26500–26501`
 2. Deploy the Task:
    - Go to your ECS cluster > **Services** > **Create Service**.
@@ -122,9 +119,6 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 
 1. Access the Camunda Web UI:
    - Navigate to the public IP of the ECS service:
-     ```
-     http://<public-ip>:8080
-     ```
 2. Log in using the default credentials:
    - Username: `demo`
    - Password: `demo`
@@ -135,15 +129,15 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 
 ### 2. Install Required Tools
 
-1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/).
+1. Install [kubectl].
    ```bash
    kubectl version --client
    ```
-2. Install [eksctl](https://eksctl.io/).
+2. Install [eksctl].
    ```bash
    eksctl version
    ```
-3. Install [Helm](https://helm.sh/docs/intro/install/).
+3. Install [Helm].
    ```bash
    helm version
    ```
