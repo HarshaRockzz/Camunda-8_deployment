@@ -18,7 +18,6 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - [Install Required Tools](#2-install-required-tools)
    - [Set Up EKS Cluster](#3-set-up-eks-cluster)
    - [Deploy Camunda Using Helm](#5-deploy-camunda-8-on-eks)
-4. [Validation](#7-validate-the-deployment)
 
 ---
 
