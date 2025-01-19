@@ -4,23 +4,6 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 
 ---
 
-## Table of Contents
-
-1. [Prerequisites](#prerequisites)
-2. [Deploying Camunda 8 Using ECS](#deploying-camunda-8-using-ecs)
-   - [AWS Account Setup](#1-create-an-aws-account)
-   - [AWS Access Key Setup](#2-create-aws-access-key-id-and-secret-access-key)
-   - [Install AWS CLI](#3-install-aws-cli)
-   - [Set Up AWS Resources](#4-set-up-aws-resources)
-   - [Deploy Camunda on ECS](#5-deploy-camunda-8-on-aws)
-   - [Validate Deployment](#6-validate-deployment)
-3. [Deploying Camunda 8 Using EKS](#deploying-camunda-8-using-eks)
-   - [Install Required Tools](#2-install-required-tools)
-   - [Set Up EKS Cluster](#3-set-up-eks-cluster)
-   - [Deploy Camunda Using Helm](#5-deploy-camunda-8-on-eks)
-
----
-
 ## Prerequisites
 
 - AWS Account with AdministratorAccess.
