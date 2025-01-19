@@ -1,6 +1,6 @@
 # Deploying Camunda 8 on AWS
 
-This guide provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service). Each section covers prerequisites, configurations, and validation steps.
+This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service).
 
 ---
 
@@ -239,54 +239,3 @@ operate:
    ```
 
 ---
-
-## Validation
-
-### Expose Camunda Services
-
-1. Use a Kubernetes LoadBalancer:
-   ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: camunda
-     namespace: camunda
-   spec:
-     type: LoadBalancer
-     ports:
-     - port: 8080
-       targetPort: 8080
-       protocol: TCP
-     selector:
-       app.kubernetes.io/name: camunda-platform
-   ```
-2. Apply the service:
-   ```bash
-   kubectl apply -f service.yaml
-   ```
-3. Retrieve the external IP:
-   ```bash
-   kubectl get svc -n camunda
-   ```
-
-### Access the Camunda Web UI
-
-1. Use the external IP provided by the LoadBalancer:
-   ```
-   http://<external-ip>:8080
-   ```
-2. Log in using the default credentials:
-   - Username: `demo`
-   - Password: `demo`
-
----
-
-## Challenges and Solutions
-
-Document challenges faced and their solutions during deployment.
-
----
-
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
