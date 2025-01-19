@@ -13,17 +13,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 
 ## Deploying Camunda 8 Using ECS
 
-### 1. Create an AWS Account
-
-1. Visit the [AWS Sign-Up Page](https://aws.amazon.com/).
-2. Provide the following details:
-   - Email address
-   - Password
-   - AWS account name (e.g., "CamundaDeployment")
-3. Complete the billing process and identity verification via phone OTP.
-4. Choose the Free Tier Plan (if eligible).
-
-### 2. Create AWS Access Key ID and Secret Access Key
+### 1. Create AWS Access Key ID and Secret Access Key
 
 1. Log in to the [AWS Management Console](https://aws.amazon.com/console/).
 2. Navigate to **IAM**:
@@ -38,7 +28,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - Access Key ID
    - Secret Access Key
 
-### 3. Install AWS CLI
+### 2. Install AWS CLI
 
 1. Download and install AWS CLI from the [official guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
 2. Verify the installation:
@@ -55,9 +45,9 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - Default region (e.g., `us-east-1`)
    - Default output format (`json`)
 
-### 4. Set Up AWS Resources
+### 3. Set Up AWS Resources
 
-#### 4.1 Create a VPC
+#### 3.1 Create a VPC
 
 1. Navigate to **VPC** in the AWS Console.
 2. Create a new VPC:
@@ -71,7 +61,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - Go to **Internet Gateway** > **Create Internet Gateway**.
    - Attach it to your VPC.
 
-#### 4.2 Create Security Groups
+#### 3.2 Create Security Groups
 
 1. Navigate to **Security Groups** in the VPC dashboard.
 2. Create a new security group with the following inbound rules:
@@ -80,7 +70,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - TCP (Ports 26500–26501) – Source: Anywhere
    - SSH (Port 22) – Source: Your IP
 
-#### 4.3 Set Up RDS (PostgreSQL Database)
+#### 3.3 Set Up RDS (PostgreSQL Database)
 
 1. Navigate to **RDS** in the AWS Console.
 2. Create a PostgreSQL database:
@@ -90,16 +80,16 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - Assign your security group
 3. Note the database endpoint for configuration.
 
-### 5. Deploy Camunda 8 on AWS
+### 4. Deploy Camunda 8 on AWS
 
-#### 5.1 Set Up ECS Cluster
+#### 4.1 Set Up ECS Cluster
 
 1. Navigate to **ECS** in the AWS Console.
 2. Create a new cluster:
    - Select **Fargate** as the launch type.
    - Name your cluster (e.g., `camunda-cluster`).
 
-#### 5.2 Prepare Camunda Docker Image
+#### 4.2 Prepare Camunda Docker Image
 
 1. Install Docker and pull the Camunda image:
    ```bash
@@ -116,7 +106,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
      docker push <your_ecr_url>/camunda
      ```
 
-#### 5.3 Deploy Camunda in ECS
+#### 4.3 Deploy Camunda in ECS
 
 1. Create a Task Definition:
    - Navigate to **Task Definitions** > **Create New Task Definition**.
@@ -128,7 +118,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
    - Go to your ECS cluster > **Services** > **Create Service**.
    - Select the Task Definition and desired number of tasks.
 
-### 6. Validate Deployment
+### 5. Validate Deployment
 
 1. Access the Camunda Web UI:
    - Navigate to the public IP of the ECS service:
