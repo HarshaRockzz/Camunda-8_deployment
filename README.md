@@ -6,7 +6,7 @@ This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (El
 ## Prerequisites
 
 - AWS Account with AdministratorAccess.
-- Installed tools: [AWS CLI], [Docker], [kubectl], [eksctl], [Helm].
+- Installed tools: [AWS CLI],  [Docker],  [kubectl], [eksctl],  [Helm].
 
 
 ## Deploying Camunda 8 Using ECS
