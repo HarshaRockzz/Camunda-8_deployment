@@ -1,4 +1,4 @@
-# Deploying Camunda 8 on AWS
+#  Deploying Camunda 8 on AWS
 
 This provides step-by-step instructions to deploy Camunda 8 on AWS using ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service).
 
